@@ -1,11 +1,138 @@
-/* 
+        body {
+          font-family: "Inter", sans-serif;
+          margin: 0;
+          background-color: #000000;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          min-height: 100vh;
+          padding: 20px;
+          box-sizing: border-box; 
+        }
 
-    You can write your own styles here...
-    
-    
-    ...Or you can use the import command to include 
-    other sylesheets into your bunde as well, e.j:
-    
-    import 'relative/path/to/stylesheet.scss';
+        .traffic-light-page-container {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          min-height: calc(100vh - 40px); 
+          width: 100%;
+          max-width: 400px;
+          margin: auto;
+        }
 
-*/
+        .traffic-light-frame {
+          background-color: #333; 
+          border-radius: 20px;
+          padding: 20px;
+          display: flex;
+          flex-direction: column;
+          gap: 15px; 
+          box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+          transition: outline 0.3s ease-in-out; 
+        }
+
+        .traffic-light-frame.outline-purple {
+          outline: 5px solid #8a2be2; 
+          outline-offset: 8px; 
+        }
+
+        .light-circle {
+          width: 80px;
+          height: 80px;
+          border-radius: 50%;
+          background-color: #555;
+          border: 2px solid #222;
+          transition: background-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+        }
+
+        .light-circle.red.active {
+          background-color: #ff0000;
+          box-shadow: 0 0 20px #ff0000, 0 0 40px #ff0000;
+        }
+        .light-circle.yellow.active {
+          background-color: #ffff00; 
+          box-shadow: 0 0 20px #ffff00, 0 0 40px #ffff00;
+        }
+        .light-circle.green.active {
+          background-color: #00ff00;
+          box-shadow: 0 0 20px #00ff00, 0 0 40px #00ff00;
+        }
+
+        .button-container {
+          margin-top: 30px;
+          display: flex;
+          flex-wrap: wrap;
+          gap: 15px;
+          justify-content: center;
+          width: 100%;
+        }
+
+        .control-button {
+          padding: 12px 25px;
+          font-size: 1rem;
+          font-weight: 600;
+          border-radius: 8px;
+          border: none;
+          cursor: pointer;
+          transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+          color: white;
+          box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .control-button.cycle-btn {
+          background-color: #221f00bc; 
+        }
+        .control-button.cycle-btn:hover {
+          background-color: #fde90d;
+          transform: translateY(-2px);
+          box-shadow: 0 6px 15px rgba(13, 110, 253, 0.3);
+        }
+
+        .control-button.outline-btn {
+          background-color: #221f00bc; 
+        }
+        .control-button.outline-btn:hover {
+          background-color: #8812f6;
+          transform: translateY(-2px);
+          box-shadow: 0 6px 15px rgba(111, 66, 193, 0.3);
+        }
+
+        .glowing-title {
+          font-size: 2.5rem;
+          font-weight: 700;
+          margin-bottom: 30px;
+          transition: color 0.3s ease-in-out, text-shadow 0.3s ease-in-out;
+          text-align: center;
+        }
+
+        .glowing-title.red-glow {
+          color: #ff0000;
+          text-shadow: 0 0 10px #ff0000, 0 0 20px #ff0000, 0 0 30px #ff0000;
+        }
+        .glowing-title.yellow-glow {
+          color: #ffff00;
+          text-shadow: 0 0 10px #ffff00, 0 0 20px #ffff00, 0 0 30px #ffff00;
+        }
+        .glowing-title.green-glow {
+          color: #00ff00;
+          text-shadow: 0 0 10px #00ff00, 0 0 20px #00ff00, 0 0 30px #00ff00;
+        }
+
+
+        @media (max-width: 480px) {
+            .traffic-light-frame {
+                padding: 15px;
+                gap: 10px;
+            }
+            .light-circle {
+                width: 60px;
+                height: 60px;
+            }
+            .control-button {
+                width: 100%;
+                font-size: 0.9rem;
+                padding: 10px 20px;
+            }
+        }
+    

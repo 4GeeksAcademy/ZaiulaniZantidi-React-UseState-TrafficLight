@@ -1,28 +1,52 @@
-import React from "react";
+import React, { useState } from 'react';
 
-//include images into your bundle
-import rigoImage from "../../img/rigo-baby.jpg";
+const TrafficLight = () => {
+  
+  const [color, setColor] = useState('red');
 
-//create your first component
-const Home = () => {
-	return (
-		<div className="text-center">
-            
+  const [showOutline, setShowOutline] = useState(false);
 
-			<h1 className="text-center mt-5">Hello Rigo!</h1>
-			<p>
-				<img src={rigoImage} />
-			</p>
-			<a href="#" className="btn btn-success">
-				If you see this green button... bootstrap is working...
-			</a>
-			<p>
-				Made by{" "}
-				<a href="http://www.4geeksacademy.com">4Geeks Academy</a>, with
-				love!
-			</p>
-		</div>
-	);
+
+  const cycleColors = () => {
+    setColor((prevColor) => {
+      switch (prevColor) {
+        case 'red':
+          return 'yellow';
+        case 'yellow':
+          return 'green';
+        case 'green':
+          return 'red';
+        default:
+          return 'red'; 
+      }
+    });
+  };
+
+  const toggleOutline = () => {
+    setShowOutline((prevOutline) => !prevOutline);
+  };
+
+  return (
+    <div className="traffic-light-page-container">
+
+	<h1 className={`glowing-title ${color}-glow`}>Traffic Light Simulator</h1>
+
+      <div className={`traffic-light-frame ${showOutline ? 'outline-purple' : ''}`}>
+        <div className={`light-circle red ${color === 'red' ? 'active' : ''}`}></div>
+        <div className={`light-circle yellow ${color === 'yellow' ? 'active' : ''}`}></div>
+        <div className={`light-circle green ${color === 'green' ? 'active' : ''}`}></div>
+      </div>
+
+      <div className="button-container">
+        <button className="control-button cycle-btn" onClick={cycleColors}>
+          Cycle Colors
+        </button>
+        <button className="control-button outline-btn" onClick={toggleOutline}>
+          Illuminate
+        </button>
+      </div>
+    </div>
+  );
 };
 
-export default Home;
+export default TrafficLight;
