@@ -35,6 +35,7 @@
         .traffic-light-frame.outline-purple {
           outline: 5px solid #8a2be2; 
           outline-offset: 8px; 
+          box-shadow: 0 0 20px #8a2be2, 0 0 40px #8a2be2;
         }
 
         .light-circle {
